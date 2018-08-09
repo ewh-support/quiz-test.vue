@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="vi"><head><title>Bài kiểm tra anh van 02 Test - Test - Wall Street English</title><meta name="description" content="Bài kiểm tra giúp đánh giá trình độ tiếng Anh xem liệu bạn có đủ tự tin để tự mình khám phá vùng đất mới?"><meta property="og:description" content="Bài kiểm tra giúp đánh giá trình độ tiếng Anh xem liệu bạn có đủ tự tin để tự mình khám phá vùng đất mới?"><meta property="fb:admins" content="100001245724231"><meta property="fb:app_id" content="473611536080097"><meta property="og:title" content="Bài kiểm tra anh van 02 Test - Test - Wall Street English"><meta property="og:url" content="assets/vi/english-tests/travel/detail/67-reservation.html"><meta property="og:type" content="website"><meta property="og:site_name" content="https://wallstreetenglish.edu.vn"><meta property="og:image" content="/assets/images/english-test/facebook-share.jpg"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><style>.block:hover {
+<!DOCTYPE html><html lang="vi"><head><title>Bài kiểm tra anh van 01 Test - Test - Wall Street English</title><meta name="description" content="Bài kiểm tra giúp đánh giá trình độ tiếng Anh xem liệu bạn có đủ tự tin để tự mình khám phá vùng đất mới?"><meta property="og:description" content="Bài kiểm tra giúp đánh giá trình độ tiếng Anh xem liệu bạn có đủ tự tin để tự mình khám phá vùng đất mới?"><meta property="fb:admins" content="100001245724231"><meta property="fb:app_id" content="473611536080097"><meta property="og:title" content="Bài kiểm tra anh van 01 Test - Test - Wall Street English"><meta property="og:url" content="assets/vi/english-tests/travel/detail/67-reservation.html"><meta property="og:type" content="website"><meta property="og:site_name" content="https://wallstreetenglish.edu.vn"><meta property="og:image" content="/assets/images/english-test/facebook-share.jpg"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><style>.block:hover {
             background-color: black;
 
         }
@@ -148,8 +148,8 @@
                 this.styleanwers.display = 'block';
                 console.log("index", index);
                 console.log("current prev:", this.currentIndex);
-                this.currenIndexlast = this.currentIndex;
                 this.currentIndex = index;
+                this.currenIndexlast = this.currentIndex;
                 this.currentQuestion = this.question.listQuestions[this.currentIndex],
                     console.log("current last:", this.currentIndex);
                 if (this.lengthquestion > this.currentIndex >= 1) {
@@ -174,10 +174,10 @@
 
             next: function () {
                 console.log("truongkyleeee", this.timetotal[0]);
-                this.currenIndexlast = this.currentIndex;
                 this.message.active = this.message.active;
                 this.currentIndex += 1;
                 if (this.currentIndex < this.lengthquestion) {
+                    this.currenIndexlast = this.currentIndex;
                     this.stylefinish.display = 'none';
                     this.styleanwers.display = 'block';
                     this.currentQuestion = this.question.listQuestions[this.currentIndex];
@@ -185,11 +185,11 @@
                     // let ar = [];
                     // ar = this.question.listQuestions;
                     // console.log('ar', ar)
-                   
+
                     // Array.prototype.forEach.call(ar, child => {
                     //     console.log(child);
                     //     this.calculatorcompleted(this.currentIndex);
-                        
+
                     // });
 
                     // ar.forEach(function (ele, index) {
@@ -206,11 +206,13 @@
                     // });
                     for (let i = 0; i < this.lengthquestion; i++) {
                         let ele = this.question.listQuestions[i];
-                        if (ele.listAnswers[ele.radioSeletected - 1].isCorrect) {
-                            ele.correctAnswers = true;
-                        }
-                        else {
-                            ele.correctAnswers = false;
+                        if (ele.questionType == "ONE") {
+                            if (ele.listAnswers[ele.radioSeletected - 1].isCorrect) {
+                                ele.correctAnswers = true;
+                            }
+                            else {
+                                ele.correctAnswers = false;
+                            }
                         }
                         this.calculatorcompleted(i);
 
