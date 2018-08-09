@@ -148,8 +148,8 @@
                 this.styleanwers.display = 'block';
                 console.log("index", index);
                 console.log("current prev:", this.currentIndex);
-                this.currentIndex = index;
                 this.currenIndexlast = this.currentIndex;
+                this.currentIndex = index;
                 this.currentQuestion = this.question.listQuestions[this.currentIndex],
                     console.log("current last:", this.currentIndex);
                 if (this.lengthquestion > this.currentIndex >= 1) {
@@ -175,9 +175,12 @@
             next: function () {
                 console.log("truongkyleeee", this.timetotal[0]);
                 this.message.active = this.message.active;
+                if(this.currentIndex < this.lengthquestion){
+                    this.currenIndexlast = this.currentIndex;
+                }
                 this.currentIndex += 1;
                 if (this.currentIndex < this.lengthquestion) {
-                    this.currenIndexlast = this.currentIndex;
+                    
                     this.stylefinish.display = 'none';
                     this.styleanwers.display = 'block';
                     this.currentQuestion = this.question.listQuestions[this.currentIndex];
